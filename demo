@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+PREFIX="demo"
+docker ps -q -f name=hype* | xargs -r docker stop
+~/bin/dcleanup
+
+git reset --hard
+
+git checkout $PREFIX-$1
+
+find . -name Dockerfile | xargs -r sed -i s/1.1.0-sdk/1.1.2-sdk/g
+
+dotnet clean
+clear

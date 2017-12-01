@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+tree -d -I obj -L $1

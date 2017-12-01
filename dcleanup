@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "Starting Docker cleanup..."
+
+echo "Removing stopped containers"
+
+docker ps -a -q -f status=exited | xargs -r docker rm
+echo "Removing untagged images"
+docker images -q -f dangling=true | xargs -r docker rmi
+echo "Removing dangling volumes"
+docker volume ls -qf dangling=true | xargs -r docker volume rm

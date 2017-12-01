@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+echo 'dotnet build -c Release && dotnet publish -c Release -o out'
+dotnet build -c Release && dotnet publish -c Release -o out/
